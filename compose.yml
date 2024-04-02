@@ -9,4 +9,8 @@ services:
 
   fedora:
     image: clxssy/fedora
+    volumes: 
+      - .:/Source:ro
+    working_dir: /Build
+    command: cat /etc/os-release
 
