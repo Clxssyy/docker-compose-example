@@ -1,13 +1,16 @@
+x-configuration: &CONFIGURATION
+  volumes:
+    - .:/Source:ro
+  working_dir: /Build
+  command: cat /etc/os-release
+
 services:
 
-  ubuntu: &SETUP
+  ubuntu:
     image: clxssy/ubuntu
-    volumes: 
-      - .:/Source:ro
-    working_dir: /Build
-    command: cat /etc/os-release
+    <<: *CONFIGURATION
 
   fedora:
-    <<: *SETUP
     image: clxssy/fedora
+    <<: *CONFIGURATION
 
