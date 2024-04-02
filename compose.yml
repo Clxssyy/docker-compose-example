@@ -1,6 +1,6 @@
 services:
 
-  ubuntu:
+  ubuntu: &SETUP
     image: clxssy/ubuntu
     volumes: 
       - .:/Source:ro
@@ -8,9 +8,6 @@ services:
     command: cat /etc/os-release
 
   fedora:
+    <<: *SETUP
     image: clxssy/fedora
-    volumes: 
-      - .:/Source:ro
-    working_dir: /Build
-    command: cat /etc/os-release
 
